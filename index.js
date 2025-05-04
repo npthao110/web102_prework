@@ -180,3 +180,34 @@ firstGameContainer.appendChild(topGameElement);
 const secondGameElement = document.createElement("p");
 secondGameElement.textContent = secondGame.name;
 secondGameContainer.appendChild(secondGameElement);
+
+/************************************************************************************
+ * Some optional modifications
+ */
+
+// Scroll bar
+const header = document.querySelector(".header");
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 20) {
+    header.classList.add("scrolled");
+  } else {
+    header.classList.remove("scrolled");
+  }
+});
+
+// Search bar
+const searchInput = document.getElementById("search-input");
+// filter on every keystroke
+searchInput.addEventListener("input", (e) => {
+  const term = e.target.value.trim().toLowerCase();
+  // clear current cards
+  deleteChildElements(gamesContainer);
+  // if empty, show all; otherwise filter by name
+  const results = term === ""
+    ? GAMES_JSON
+    : GAMES_JSON.filter(game =>
+        game.name.toLowerCase().includes(term)
+      );
+  // render the filtered list
+  addGamesToPage(results);
+});

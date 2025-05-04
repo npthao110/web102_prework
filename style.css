@@ -1,81 +1,189 @@
-@import url('https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600;700&display=swap");
 
 body {
-    font-family: 'Cabin';
-    background-color: #758190;
+  font-family: "Cabin", sans-serif;
+  background-color: #f4f6f8;
+  margin: 0;
+  padding: 0;
+  color: #333;
 }
 
-#tentacles {
-    width: 50px;
+.page-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
 }
 
 .header {
-    display: flex;
-    background-color: lightblue;
-    padding: 1%;
-    align-items: center;
-    margin-left: -10px;
-    margin-right: -10px;
-    margin-top: -10px;
+  position: sticky;
+  top: 0;
+  z-index: 1000; /* sit above everything */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* logo on left, nav on right */
+  background-color: #87ceeb;
+  padding: 15px 50px;
+  transition: 0.5s;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background-color: #87ceeb;
+  transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+.header.scrolled {
+  /* make it semi-opaque when scrolled */
+  background-color: rgba(135, 206, 235, 0.9);
+  /* add a blur so content shows through softly */
+  backdrop-filter: blur(10px);
+}
+
+.header-text {
+  margin-left: 1rem;
+  margin-right: 4rem;
+  font-size: 1.8rem;
+  color: #083b66;
+}
+
+html {
+  scroll-padding-top: 120px;
+  scroll-behavior: smooth;
+}
+
+.nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav a {
+  color: #2c3e50;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.nav a:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+#tentacles {
+  width: 50px;
+}
+
+h2 {
+  margin-left: 2rem;
+  color: #2c3e50;
+}
+
+#description-container p {
+  margin: 0 2rem 2rem;
+  font-size: 1.1rem;
 }
 
 .stats-container {
-    display: flex;
-    align-items: center;
-}
-
-.stats-container:hover {
-    cursor: pointer;
-    box-shadow: 0 0 30px lightblue;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 1rem 2rem;
+  gap: 1rem;
 }
 
 .stats-card {
-    background-color: #a8b0bc;
-    border-radius: 7px;
-    padding: 1%;
-    margin: 1%;
-    width: 100%;
-    text-align: center;
+  background-color: #dce3ea;
+  border-radius: 10px;
+  padding: 1rem;
+  width: 300px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
 }
 
-#num-contributions, #total-raised, #num-games {
-    font-size: 50px;
+.stats-card:hover {
+  cursor: pointer;
+  box-shadow: 0 0 20px #87ceeb;
+}
+
+#num-contributions,
+#total-raised,
+#num-games {
+  font-size: 2rem;
+  font-weight: bold;
 }
 
 #games-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-}
-
-.game-img {
-    width: 100%;
-    border-radius: 5px;
-    box-shadow: 0 0 10px #FFFFFF;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 1rem 2rem;
+  gap: 1rem;
 }
 
 .game-card {
-    background-color: #FFFFFF;
-    padding: 1%;
-    margin: 1%;
-    width: 300px;
-    text-align: center;
-    border-radius: 7px;
+  background-color: #fff;
+  padding: 1rem;
+  width: 280px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .game-card:hover {
-    cursor: pointer;
-    box-shadow: 0 0 30px lightblue;
+  cursor: pointer;
+  transform: translateY(-5px);
+  box-shadow: 0 0 30px lightblue;
+}
+
+.game-img {
+  width: 100%;
+  border-radius: 5px;
+  margin-bottom: 0.5rem;
 }
 
 #button-container {
-    text-align: center;
+  text-align: center;
+  margin: 1.5rem 0;
 }
 
 button {
-    font-family: 'Cabin';
-    border: none;
-    padding: 1%;
-    margin: 1%;
-    border-radius: 7px;
+  font-family: "Cabin";
+  background-color: #87ceeb;
+  color: #2c3e50;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  margin: 0.5rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #5caad9;
+  cursor: pointer;
+}
+
+#search-container {
+  text-align: center;
+  margin: 1.5rem 0;
+}
+
+#search-input {
+  width: 300px;
+  max-width: 90%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+#search-input:focus {
+  outline: none;
+  border-color: #5caad9;
+  box-shadow: 0 0 5px rgba(92, 170, 217, 0.5);
 }
